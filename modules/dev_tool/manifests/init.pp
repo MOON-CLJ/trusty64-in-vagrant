@@ -1,5 +1,6 @@
 class dev_tool {
     package {[
+        'puppetserver',
         'ack-grep',
         'build-essential',
         'software-properties-common',
@@ -13,6 +14,10 @@ class dev_tool {
     ]:
         ensure => latest,
     }
+
+#    vundle::installation { 'vagrant':
+#      plugins => [ 'Valloric/YouCompleteMe' ],
+#    }
 
     file { '/usr/local/bin/ack':
         ensure  => link,

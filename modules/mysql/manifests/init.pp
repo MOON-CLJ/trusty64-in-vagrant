@@ -35,9 +35,6 @@ class mysql {
 }
 
 class mysql::mariadb10 {
-    ubuntu::apt_key { '0xcbcb082a1bb943db':
-        key_server => 'hkp://keyserver.ubuntu.com:80'
-    } ->
     package { 'mysql-common':
         ensure => '10.0.33+maria-1~trusty',
     } ->

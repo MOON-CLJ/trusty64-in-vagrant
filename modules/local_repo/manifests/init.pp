@@ -13,6 +13,13 @@ class local_repo($source = 'aliyun') {
         ensure => file,
         source => $repo_conf,
     } ->
+    file {'puppetlabs_repo':
+        owner  => root,
+        group  => root,
+        path   => '/etc/apt/sources.list.d/puppetlabs.list',
+        ensure => file,
+        source => 'puppet:///modules/local_repo/puppetlabs.list',
+    } ->
     file {'update_repo_script':
         owner  => root,
         group  => root,
