@@ -81,6 +81,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "files/.tmux.conf", destination: ".tmux.conf"
   config.vm.provision "file", source: "files/.vimrc", destination: ".vimrc"
 
+  config.librarian_puppet.puppetfile_dir = "./"
+
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "modules"
     puppet.options = "--verbose"

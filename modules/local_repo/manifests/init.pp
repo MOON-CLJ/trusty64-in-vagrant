@@ -16,9 +16,9 @@ class local_repo($source = 'aliyun') {
     file {'puppetlabs_repo':
         owner  => root,
         group  => root,
-        path   => '/etc/apt/sources.list.d/puppetlabs.list',
+        path   => '/etc/apt/sources.list.d/puppetlabs-pc1.list',
         ensure => file,
-        source => 'puppet:///modules/local_repo/puppetlabs.list',
+        source => 'puppet:///modules/local_repo/puppetlabs-pc1.list',
     } ->
     file {'update_repo_script':
         owner  => root,
