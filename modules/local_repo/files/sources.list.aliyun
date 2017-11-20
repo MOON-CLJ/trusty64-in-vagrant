@@ -1,0 +1,14 @@
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+
+# http://mariadb.org/mariadb/repositories/
+deb [arch=amd64,i386] http://mirrors.aliyun.com/mariadb/repo/10.0/ubuntu trusty main
+deb-src http://mirrors.aliyun.com/mariadb/repo/10.0/ubuntu trusty main

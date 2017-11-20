@@ -47,6 +47,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  config.vm.synced_folder "~/dev", "/home/vagrant/dev"
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -73,6 +75,16 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  config.vm.provision "file", source: "files/.bash_aliases", destination: ".bash_aliases"
+  config.vm.provision "file", source: "files/.gitconfig", destination: ".gitconfig"
+  config.vm.provision "file", source: "files/.tmux.conf", destination: ".tmux.conf"
+  config.vm.provision "file", source: "files/.vimrc", destination: ".vimrc"
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.module_path = "modules"
+    puppet.options = "--verbose"
+  end
 
   # config.ssh
   config.ssh.guest_port = 2223
