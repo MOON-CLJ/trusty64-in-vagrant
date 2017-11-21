@@ -80,8 +80,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "files/.gitconfig", destination: ".gitconfig"
   config.vm.provision "file", source: "files/.tmux.conf", destination: ".tmux.conf"
   config.vm.provision "file", source: "files/.vimrc", destination: ".vimrc"
+  config.vm.provision "file", source: "Puppetfile", destination: "/tmp/Puppetfile"
 
-  config.librarian_puppet.puppetfile_dir = "./"
+  config.vm.provision "shell",
+    inline: "mv /tmp/Puppetfile /tmp/vagrant-puppet/"
 
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "modules"
