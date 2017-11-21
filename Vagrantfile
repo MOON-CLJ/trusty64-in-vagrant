@@ -1,6 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+$script = <<SCRIPT
+echo I am provisioning...
+mv /tmp/Puppetfile /tmp/vagrant-puppet/
+SCRIPT
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -83,7 +88,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "Puppetfile", destination: "/tmp/Puppetfile"
 
   config.vm.provision "shell",
-    inline: "mv /tmp/Puppetfile /tmp/vagrant-puppet/"
+    inline: $script
 
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "modules"

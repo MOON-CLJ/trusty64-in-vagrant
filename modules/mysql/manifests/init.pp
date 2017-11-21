@@ -35,6 +35,10 @@ class mysql {
 }
 
 class mysql::mariadb10 {
+    apt::key { 'mariadb':
+        id => '0xcbcb082a1bb943db',
+    }
+
     package { 'mysql-common':
         ensure => '10.0.33+maria-1~trusty',
     } ->

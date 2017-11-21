@@ -4,7 +4,6 @@ Exec {
 }
 
 include vagrant
-include ubuntu::apt_keys
 
 class { local_repo:
     source => 'aliyun',

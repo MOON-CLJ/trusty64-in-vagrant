@@ -15,9 +15,14 @@ class dev_tool {
         ensure => latest,
     }
 
-#    vundle::installation { 'vagrant':
-#      plugins => [ 'Valloric/YouCompleteMe' ],
-#    }
+    package { 'r10k':
+        ensure   => 'installed',
+        provider => 'gem',
+    }
+
+    vundle::installation { 'vagrant':
+      plugins => [ 'Valloric/YouCompleteMe' ],
+    }
 
     file { '/usr/local/bin/ack':
         ensure  => link,
