@@ -20,10 +20,6 @@ class dev_tool {
         provider => 'gem',
     }
 
-    vundle::installation { 'vagrant':
-      plugins => [ 'Valloric/YouCompleteMe' ],
-    }
-
     file { '/usr/local/bin/ack':
         ensure  => link,
         target  => '/usr/bin/ack-grep',

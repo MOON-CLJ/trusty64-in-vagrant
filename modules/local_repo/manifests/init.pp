@@ -34,7 +34,6 @@ class local_repo($source = 'aliyun') {
         unless      => "[ -f '/vagrant/dont-update-pkg-index' ]",
     }
     Exec['update-pkg-index'] -> Package <| |>
-    Exec['update-pkg-index'] <- Ubuntu::Ppa_repo <| |>
 
     $apt_conf = 'puppet:///modules/local_repo/apt_conf'
     $proxied_hosts = [
