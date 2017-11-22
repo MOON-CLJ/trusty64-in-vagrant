@@ -12,6 +12,7 @@ class dev_tool {
         'vim',
         'wget',
         'fish',
+        'htop',
     ]:
         ensure => latest,
     }
