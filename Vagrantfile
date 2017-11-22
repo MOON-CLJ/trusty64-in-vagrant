@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
-    v.cpus = 4
+    vb.cpus = 4
     vb.customize [
       "modifyvm", :id,
       '--natdnshostresolver1', 'on',
@@ -91,6 +91,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "files/.gitconfig", destination: ".gitconfig"
   config.vm.provision "file", source: "files/.tmux.conf", destination: ".tmux.conf"
   config.vm.provision "file", source: "files/.vimrc", destination: ".vimrc"
+  config.vm.provision "file", source: "files/.ackrc", destination: ".ackrc"
   config.vm.provision "file", source: "Puppetfile", destination: "/tmp/Puppetfile"
 
   config.vm.provision "shell",

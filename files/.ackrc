@@ -1,0 +1,3 @@
+# python
+--ignore-dir=venv/
+--ignore-dir=venv3/
