@@ -4,6 +4,9 @@ Exec {
 }
 
 include vagrant
+include apt
+
+apt::ppa { 'ppa:pkg-vim/vim-daily': }
 
 class { local_repo:
     source => 'aliyun',

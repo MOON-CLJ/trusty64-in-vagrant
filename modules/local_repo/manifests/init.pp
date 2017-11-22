@@ -1,17 +1,43 @@
 class local_repo($source = 'aliyun') {
-    $repo_conf = "puppet:///modules/local_repo/sources.list.${source}"
     $update_script = "puppet:///modules/local_repo/update_repo.sh"
 
     $source_hosts = {
         aliyun => 'mirrors.aliyun.com',
     }
 
-    file {'local_repo':
+    apt::source { "${source_hosts[$source]}-${lsbdistcodename}":
+      location => "http://source_hosts[$source]/ubuntu",
+      key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+      repos    => 'main universe multiverse restricted',
+    } ->
+
+    apt::source { "${source_hosts[$source]}-${lsbdistcodename}-security":
+      location => "http://source_hosts[$source]/ubuntu",
+      key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+      repos    => 'main universe multiverse restricted',
+      release  => "${lsbdistcodename}-security"
+    } ->
+
+    apt::source { "${source_hosts[$source]}-${lsbdistcodename}-updates":
+      location => "http://source_hosts[$source]/ubuntu",
+      key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+      repos    => 'main universe multiverse restricted',
+      release  => "${lsbdistcodename}-updates"
+    } ->
+
+    apt::source { "${source_hosts[$source]}-${lsbdistcodename}-backports":
+      location => "http://source_hosts[$source]/ubuntu",
+      key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+      repos    => 'main universe multiverse restricted',
+      release  => "${lsbdistcodename}-backports"
+    } ->
+
+    file {'mariadb_repo':
         owner  => root,
         group  => root,
-        path   => '/etc/apt/sources.list',
+        path   => '/etc/apt/sources.list.d/mariadb10.0.list',
         ensure => file,
-        source => $repo_conf,
+        source => 'puppet:///modules/local_repo/mariadb10.0.list',
     } ->
     file {'puppetlabs_repo':
         owner  => root,

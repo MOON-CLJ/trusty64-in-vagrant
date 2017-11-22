@@ -36,7 +36,7 @@ class mysql {
 
 class mysql::mariadb10 {
     apt::key { 'mariadb':
-        id     => '0xcbcb082a1bb943db',
+        id     => '199369E5404BD5FC7D2FE43BCBCB082A1BB943DB',
         server => 'keyserver.ubuntu.com',
     }
 

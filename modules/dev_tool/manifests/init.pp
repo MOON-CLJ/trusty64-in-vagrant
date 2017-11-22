@@ -9,7 +9,7 @@ class dev_tool {
         'lsof',
         'strace',
         'tmux',
-        'vim-nox',
+        'vim',
         'wget',
     ]:
         ensure => latest,
@@ -27,7 +27,7 @@ class dev_tool {
     }
 
     file { '/etc/profile.d/default-editor.sh':
-        require => Package['vim-nox'],
+        require => Package['vim'],
         owner   => root,
         group   => root,
         ensure  => file,
