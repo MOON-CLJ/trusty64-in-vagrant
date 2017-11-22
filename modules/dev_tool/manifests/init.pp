@@ -11,6 +11,7 @@ class dev_tool {
         'tmux',
         'vim',
         'wget',
+        'fish',
     ]:
         ensure => latest,
     }
