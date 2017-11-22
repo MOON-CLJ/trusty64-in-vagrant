@@ -13,6 +13,9 @@ class dev_tool {
         'wget',
         'fish',
         'htop',
+        'memcached',
+        'libsnappy-dev',
+        'libssl-dev',
     ]:
         ensure => latest,
     }
