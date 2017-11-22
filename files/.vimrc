@@ -13,10 +13,6 @@ Plugin 'fatih/vim-go'
 Plugin 'nvie/vim-flake8'
 call vundle#end()
 
-" Pathogen load
-call pathogen#infect()
-call pathogen#helptags()
-
 filetype plugin indent on
 syntax on
 
