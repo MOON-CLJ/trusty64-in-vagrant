@@ -6,27 +6,27 @@ class local_repo($source = 'aliyun') {
     }
 
     apt::source { "${source_hosts[$source]}-${lsbdistcodename}":
-      location => "http://source_hosts[$source]/ubuntu",
+      location => "http://${source_hosts[$source]}/ubuntu",
       key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
       repos    => 'main universe multiverse restricted',
     } ->
 
     apt::source { "${source_hosts[$source]}-${lsbdistcodename}-security":
-      location => "http://source_hosts[$source]/ubuntu",
+      location => "http://${source_hosts[$source]}/ubuntu",
       key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
       repos    => 'main universe multiverse restricted',
       release  => "${lsbdistcodename}-security"
     } ->
 
     apt::source { "${source_hosts[$source]}-${lsbdistcodename}-updates":
-      location => "http://source_hosts[$source]/ubuntu",
+      location => "http://${source_hosts[$source]}/ubuntu",
       key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
       repos    => 'main universe multiverse restricted',
       release  => "${lsbdistcodename}-updates"
     } ->
 
     apt::source { "${source_hosts[$source]}-${lsbdistcodename}-backports":
-      location => "http://source_hosts[$source]/ubuntu",
+      location => "http://${source_hosts[$source]}/ubuntu",
       key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
       repos    => 'main universe multiverse restricted',
       release  => "${lsbdistcodename}-backports"
@@ -61,11 +61,6 @@ class local_repo($source = 'aliyun') {
     }
     Exec['update-pkg-index'] -> Package <| |>
 
-    $apt_conf = 'puppet:///modules/local_repo/apt_conf'
-    $proxied_hosts = [
-        $source_hosts[$source],
-        'ppa.launchpad.net',
-    ]
     file {'/etc/apt/apt.conf.d/00vagrantbox':
         owner   => root,
         group   => root,
