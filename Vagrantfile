@@ -102,6 +102,8 @@ Vagrant.configure("2") do |config|
     puppet.options = "--verbose"
   end
 
+  config.vm.host_name = "vagrant"
+
   # config.ssh
   config.ssh.guest_port = 2223
 end

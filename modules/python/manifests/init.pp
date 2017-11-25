@@ -1,5 +1,8 @@
 class python {
-    package {['python-all-dev', 'python-dev', 'python3-dev', 'python-virtualenv', 'python3.6']:
+    package {[
+        'python-all-dev', 'python-dev', 'python3-dev', 'python-virtualenv', 'python3.6',
+        'python-numpy',
+    ]:
         ensure => latest,
     }
 

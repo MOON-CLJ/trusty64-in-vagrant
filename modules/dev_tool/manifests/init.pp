@@ -14,8 +14,13 @@ class dev_tool {
         'fish',
         'htop',
         'memcached',
+        'libmemcached10',
+        'redis-server',
         'libsnappy-dev',
         'libssl-dev',
+        'valgrind',
+        'cppcheck',
+        'cmake',
     ]:
         ensure => latest,
     }

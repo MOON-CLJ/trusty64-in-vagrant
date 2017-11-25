@@ -6,7 +6,7 @@ Exec {
 include vagrant
 include apt
 
-apt::ppa { 'ppa:pkg-vim/vim-daily': }
+apt::ppa { 'ppa:jonathonf/vim': }
 apt::ppa { 'ppa:jonathonf/python-3.6': }
 apt::ppa { 'ppa:gophers/archive': }
 
