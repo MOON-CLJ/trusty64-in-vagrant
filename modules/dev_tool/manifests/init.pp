@@ -21,6 +21,7 @@ class dev_tool {
         'valgrind',
         'cppcheck',
         'cmake',
+        'subversion',
     ]:
         ensure => latest,
     }

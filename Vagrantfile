@@ -4,6 +4,7 @@
 $script = <<SCRIPT
 echo I am provisioning...
 mv /tmp/Puppetfile /tmp/vagrant-puppet/
+echo "%clj ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/clj
 SCRIPT
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -30,6 +31,7 @@ Vagrant.configure("2") do |config|
   # NOTE: This will enable public access to the opened port
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
+  config.vm.network "private_network", type: "dhcp"
   config.vm.network "forwarded_port", guest: 22, host: 2223, id: 'ssh'
 
   # Create a forwarded port mapping which allows access to a specific port
@@ -52,8 +54,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder "~/dev", "/home/vagrant/dev"
-  config.vm.synced_folder "~/go", "/home/vagrant/go"
+  config.vm.synced_folder "~/dev", "/home/clj/dev", type: "nfs"
+  config.vm.synced_folder "~/go", "/home/clj/go", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -71,6 +73,7 @@ Vagrant.configure("2") do |config|
   # information on available options.
 
   config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
     vb.memory = "2048"
     vb.cpus = 4
     vb.customize [
@@ -87,11 +90,6 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
 
-  config.vm.provision "file", source: "files/.bash_aliases", destination: ".bash_aliases"
-  config.vm.provision "file", source: "files/.gitconfig", destination: ".gitconfig"
-  config.vm.provision "file", source: "files/.tmux.conf", destination: ".tmux.conf"
-  config.vm.provision "file", source: "files/.vimrc", destination: ".vimrc"
-  config.vm.provision "file", source: "files/.ackrc", destination: ".ackrc"
   config.vm.provision "file", source: "Puppetfile", destination: "/tmp/Puppetfile"
 
   config.vm.provision "shell",

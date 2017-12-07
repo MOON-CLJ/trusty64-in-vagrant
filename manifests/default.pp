@@ -4,6 +4,8 @@ Exec {
 }
 
 include vagrant
+include users::z_group
+include users::clj
 include apt
 
 apt::ppa { 'ppa:jonathonf/vim': }
