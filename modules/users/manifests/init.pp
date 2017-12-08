@@ -17,12 +17,12 @@ class users::clj {
     user { 'user clj':
         ensure     => present,
         name       => 'clj',
-        groups     => ['z'],
+        groups     => ['z', 'vagrant'],
         home       => '/home/clj',
         uid        => '501',
         gid        => 'z',
         managehome => true,
-        shell      => '/bin/bash',
+        shell      => '/usr/bin/fish',
     }
 
     file { '/home/clj/.bash_aliases':
@@ -52,6 +52,38 @@ class users::clj {
     file { '/home/clj/.ackrc':
         owner  => 'clj',
         group  => 'z',
+        source => 'puppet:///modules/users/.ackrc',
+    }
+}
+
+class users::vagrant {
+    file { '/home/vagrant/.bash_aliases':
+        owner  => 'vagrant',
+        group  => 'vagrant',
+        source => 'puppet:///modules/users/.bash_aliases',
+    }
+
+    file { '/home/vagrant/.gitconfig':
+        owner  => 'vagrant',
+        group  => 'vagrant',
+        source => 'puppet:///modules/users/.gitconfig',
+    }
+
+    file { '/home/vagrant/.tmux.conf':
+        owner  => 'vagrant',
+        group  => 'vagrant',
+        source => 'puppet:///modules/users/.tmux.conf',
+    }
+
+    file { '/home/vagrant/.vimrc':
+        owner  => 'vagrant',
+        group  => 'vagrant',
+        source => 'puppet:///modules/users/.vimrc',
+    }
+
+    file { '/home/vagrant/.ackrc':
+        owner  => 'vagrant',
+        group  => 'vagrant',
         source => 'puppet:///modules/users/.ackrc',
     }
 }
