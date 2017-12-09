@@ -8,7 +8,7 @@ class vagrant () {
   }
 
   class { timezone:
-    zone => 'Asia/Shanghai',
+    timezone => 'Asia/Shanghai',
   }
 
   package { ['linux-headers-generic']:
