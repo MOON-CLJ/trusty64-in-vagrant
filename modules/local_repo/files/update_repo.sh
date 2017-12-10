@@ -15,3 +15,4 @@ function update_repo()
 
 update_repo /etc/apt/sources.list
 update_repo /etc/apt/sources.list.d/puppetlabs-pc1.list
+update_repo /etc/apt/sources.list.d/llvm.list

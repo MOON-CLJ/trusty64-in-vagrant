@@ -22,6 +22,9 @@ class dev_tool {
         'cppcheck',
         'cmake',
         'subversion',
+        'clang-4.0',
+        'lldb-4.0',
+        'clang-tidy',
     ]:
         ensure => latest,
     }

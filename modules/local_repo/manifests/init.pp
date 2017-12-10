@@ -30,7 +30,7 @@ class local_repo($source = 'aliyun') {
       key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
       repos    => 'main universe multiverse restricted',
       release  => "${lsbdistcodename}-backports"
-    } ->
+    }
 
     file {'mariadb_repo':
         owner  => root,
@@ -38,14 +38,22 @@ class local_repo($source = 'aliyun') {
         path   => '/etc/apt/sources.list.d/mariadb10.0.list',
         ensure => file,
         source => 'puppet:///modules/local_repo/mariadb10.0.list',
-    } ->
+    }
     file {'puppetlabs_repo':
         owner  => root,
         group  => root,
         path   => '/etc/apt/sources.list.d/puppetlabs-pc1.list',
         ensure => file,
         source => 'puppet:///modules/local_repo/puppetlabs-pc1.list',
-    } ->
+    }
+    file {'llvm_repo':
+        owner  => root,
+        group  => root,
+        path   => '/etc/apt/sources.list.d/llvm.list',
+        ensure => file,
+        source => 'puppet:///modules/local_repo/llvm.list',
+    }
+
     file {'update_repo_script':
         owner  => root,
         group  => root,
