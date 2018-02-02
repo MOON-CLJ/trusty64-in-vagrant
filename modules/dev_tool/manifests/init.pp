@@ -25,6 +25,8 @@ class dev_tool {
         'clang-4.0',
         'lldb-4.0',
         'clang-tidy',
+        'ncdu',
+        'cgdb',
     ]:
         ensure => latest,
     }

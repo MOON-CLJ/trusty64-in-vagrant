@@ -22,6 +22,7 @@ apt::ppa { 'ppa:jonathonf/vim': }
 apt::ppa { 'ppa:jonathonf/python-3.6': }
 apt::ppa { 'ppa:gophers/archive': }
 apt::ppa { 'ppa:ubuntu-toolchain-r/test': }
+apt::ppa { 'ppa:george-edison55/cmake-3.x': }
 
 class { local_repo:
     source => 'aliyun',

@@ -25,11 +25,16 @@ class python {
         ]
     }
 
-    exec { 'update setuptools':
-        command => '/usr/bin/pip install setuptools==28.8 --index-url https://pypi.doubanio.com/simple --trusted-host pypi.doubanio.com',
-        onlyif  => '/usr/bin/pip search setuptools|grep -B 1 "INSTALLED: 28.8" ; test $? = 1',
+    exec { 'ensure local pip3 installed':
+        command => 'wget https://bootstrap.pypa.io/get-pip.py -O - | python3.6',
+        onlyif  => 'test ! -f /usr/local/bin/pip3',
+    }
+
+    exec { 'ensure pip3 installed':
+        command => 'ln -sf /usr/local/bin/pip3 /usr/bin/pip3',
+        onlyif  => 'test ! -L /usr/bin/pip3',
         require => [
-            Exec['ensure pip installed'],
+            Exec['ensure local pip3 installed'],
         ]
     }
 
