@@ -11,6 +11,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 Plugin 'nvie/vim-flake8'
+Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 call vundle#end()
 
 filetype plugin indent on
@@ -37,6 +38,9 @@ set incsearch
 set hlsearch
 
 vnoremap // y/<C-R>"<CR>
+
+map <C-Y> :call yapf#YAPF()<cr>
+imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 
 nnoremap <leader>jdf :YcmCompleter GoToDefinition
 nnoremap <leader>jdc :YcmCompleter GoToDeclaration

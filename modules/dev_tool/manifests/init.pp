@@ -27,6 +27,7 @@ class dev_tool {
         'clang-tidy',
         'ncdu',
         'cgdb',
+        'libpcap-dev',
     ]:
         ensure => latest,
     }
