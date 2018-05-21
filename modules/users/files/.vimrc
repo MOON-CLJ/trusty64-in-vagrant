@@ -9,7 +9,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'fatih/vim-go'
 Plugin 'nvie/vim-flake8'
 Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
 call vundle#end()
