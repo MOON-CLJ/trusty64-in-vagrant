@@ -36,19 +36,19 @@ class mysql {
 
 class mysql::mariadb10 {
     package { 'mysql-common':
-        ensure => '10.0.33+maria-1~trusty',
+        ensure => '10.0.35+maria-1~trusty',
     } ->
     package { 'libmysqlclient18':
-        ensure => '10.0.33+maria-1~trusty',
+        ensure => '10.0.35+maria-1~trusty',
     } ->
     package { 'libmariadbclient-dev':
-        ensure => '10.0.33+maria-1~trusty',
+        ensure => '10.0.35+maria-1~trusty',
     } ->
     package { 'mariadb-server-10.0':
-        ensure => '10.0.33+maria-1~trusty',
+        ensure => '10.0.35+maria-1~trusty',
     } ->
     package { 'mariadb-client-10.0':
-        ensure => '10.0.33+maria-1~trusty',
+        ensure => '10.0.35+maria-1~trusty',
     }
 }
 
