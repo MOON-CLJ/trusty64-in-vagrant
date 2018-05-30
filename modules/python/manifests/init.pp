@@ -49,4 +49,19 @@ class python {
         group  => 'vagrant',
         source => 'puppet:///modules/python/pip.conf',
     }
+
+    package {'future 2':
+      name     => "future",
+      install_options => {'--trusted-host' => 'pypim.dapps.douban.com'},
+      ensure   => present,
+      provider => 'pip',
+    }
+
+    package {'future 3':
+      name     => "future",
+      install_options => {'--trusted-host' => 'pypim.dapps.douban.com'},
+      ensure   => present,
+      provider => 'pip3',
+    }
+
 }
