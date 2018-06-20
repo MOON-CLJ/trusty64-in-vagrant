@@ -37,6 +37,12 @@ class users::clj {
         source => 'puppet:///modules/users/.gitconfig',
     }
 
+    file { '/home/clj/.gitignore':
+        owner  => 'clj',
+        group  => 'z',
+        source => 'puppet:///modules/users/.gitignore',
+    }
+
     file { '/home/clj/.tmux.conf':
         owner  => 'clj',
         group  => 'z',
@@ -67,6 +73,12 @@ class users::vagrant {
         owner  => 'vagrant',
         group  => 'vagrant',
         source => 'puppet:///modules/users/.gitconfig',
+    }
+
+    file { '/home/vagrant/.gitignore':
+        owner  => 'vagrant',
+        group  => 'vagrant',
+        source => 'puppet:///modules/users/.gitignore',
     }
 
     file { '/home/vagrant/.tmux.conf':
