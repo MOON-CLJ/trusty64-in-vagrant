@@ -93,8 +93,8 @@ set laststatus=2   " Always show the status line - use 2 lines for the status ba
 
 " ============================ specific file type ===========================
 
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 ai
+autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
@@ -128,6 +128,10 @@ set list listchars=tab:▸-,trail:·,extends:❯,precedes:❮
 
 " ============================ key map ============================
 
+set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
+                                "    paste mode, where you can paste mass data
+                                "    that won't be autoindented
+au InsertLeave * set nopaste
 
 "Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
 vnoremap < <gv
